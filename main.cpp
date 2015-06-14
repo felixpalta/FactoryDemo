@@ -1,14 +1,23 @@
 #include <iostream>
-#include "pizzastore.h"
+#include "chicagopizzastore.h"
+#include "nypizzastore.h"
+#include <memory>
+
 using namespace std;
 
 int main()
 {
-    SimplePizzaFactory pf;
-    PizzaStore pstore(pf);
+    ChicagoPizzaStore chicago;
+    NYPizzaStore newyork;
 
-    Pizza *p = pstore.order_pizza("PePeRoNi");
-    delete p;
+    unique_ptr<Pizza> pizza(chicago.order_pizza("Cheese"));
+
+    pizza.reset(chicago.order_pizza("CLAM"));
+    pizza.reset(chicago.order_pizza("Peperoni(INVALID)"));
+
+    pizza.reset(newyork.order_pizza("Cheese"));
+    pizza.reset(newyork.order_pizza("ClAm"));
+    pizza.reset(newyork.order_pizza("Peperoni(INVALID"));
 
     return 0;
 }

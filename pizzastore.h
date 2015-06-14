@@ -1,15 +1,18 @@
 #ifndef PIZZASTORE_H
 #define PIZZASTORE_H
 
-#include "simplepizzafactory.h"
+#include "pizza.h"
 
 class PizzaStore
 {
 private:
-    const SimplePizzaFactory& _pizzafact;
+    virtual Pizza* create_pizza(std::string name) const = 0;
 public:
-    PizzaStore(const SimplePizzaFactory& pf);
-    Pizza* order_pizza(std::string name) const;
+    PizzaStore() = default;
+    virtual ~PizzaStore() = default;
+
+    virtual Pizza* order_pizza(std::string name) const final;
+
 };
 
 #endif // PIZZASTORE_H

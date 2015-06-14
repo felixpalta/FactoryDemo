@@ -3,35 +3,48 @@
 
 #include <iostream>
 #include <string>
-
-/* Interface Pizza implements 'Non-Virtual Interface' idiom. */
+#include <forward_list>
 
 class Pizza
 {
 private:
     virtual std::string name() const = 0;
+    virtual std::string dough() const = 0;
+    virtual std::string sauce() const = 0;
+protected:
+    std::forward_list<std::string> toppings;
 
 protected:
-    Pizza() = default;
+    Pizza()
+        : toppings() {}
 public:
     virtual ~Pizza() = default;
 
 public:
-    void prepare() const
+    virtual void prepare() const
     {
-        std::cout << "Making the " << name() << " pizza.\n";
+        std::cout   << "Making the " << name() << '\n'
+                    << "Tossing dough: " << dough() << '\n'
+                    << "Adding sauce: " << sauce() << '\n'
+                    << "Adding toppings: " << std::endl;
+        if (toppings.empty())
+            std::cout << "None." << std::endl;
+        else
+            for (auto& s : toppings)
+                std::cout << "\t" << s << std::endl;
     }
-    void  bake() const
+
+    virtual void bake() const
     {
-        std::cout << "Baking the " << name() << " pizza.\n";
+        std::cout << "Baking the " << name() << " pizza for 25 minutes at 350.\n";
     }
-    void  cut() const
+    virtual void cut() const
     {
-        std::cout << "Cutting the " << name() << " pizza.\n";
+        std::cout << "Cutting the " << name() << " pizza in DIAGONAL slices.\n";
     }
-    void  box() const
+    virtual void  box() const
     {
-        std::cout << "Boxing the " << name() << " pizza.\n";
+        std::cout << "Place the " << name() << " pizza in official PizzaStore box.\n";
     }
 };
 

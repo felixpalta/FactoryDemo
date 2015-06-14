@@ -4,8 +4,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    simplepizzafactory.cpp \
-    pizzastore.cpp
+    pizzastore.cpp \
+    nypizzastore.cpp \
+    chicagopizzastore.cpp
 
 *g++*{
 QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
@@ -21,9 +22,12 @@ QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
 
 HEADERS += \
     pizza.h \
-    cheesepizza.h \
-    peperonipizza.h \
-    clampizza.h \
-    veggiepizza.h \
-    simplepizzafactory.h \
-    pizzastore.h
+    pizzastore.h \
+    nystylecheesepizza.h \
+    nystylepizza.h \
+    nystyleclampizza.h \
+    chicagostylepizza.h \
+    chicagostylecheesepizza.h \
+    chicagostyleclampizza.h \
+    nypizzastore.h \
+    chicagopizzastore.h
