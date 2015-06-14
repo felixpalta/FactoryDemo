@@ -17,7 +17,7 @@ int main()
 
     pizza.reset(newyork.order_pizza("Cheese"));
     pizza.reset(newyork.order_pizza("ClAm"));
-    pizza.reset(newyork.order_pizza("Peperoni(INVALID"));
+    pizza.reset(newyork.order_pizza("Peperoni(INVALID)"));
 
     return 0;
 }
