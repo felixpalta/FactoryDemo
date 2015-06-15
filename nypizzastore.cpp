@@ -1,26 +1,7 @@
 #include "nypizzastore.h"
-#include "nystylecheesepizza.h"
-#include "nystyleclampizza.h"
-#include <algorithm>
+#include "nypizzaingredientfactory.h"
 
-using namespace std;
-
-Pizza* NYPizzaStore::create_pizza(std::string name) const
+NYPizzaStore::NYPizzaStore()
 {
-    transform(name.begin(), name.end(), name.begin(), ::tolower);
-
-    try
-    {
-        if (name == "cheese")
-            return new NYStyleCheesePizza();
-        if (name == "clam")
-            return new NYStyleClamPizza();
-    }
-    catch (bad_alloc& e)
-    {
-        cerr << e.what() << endl;
-        return nullptr;
-    }
-
-    return nullptr;
+    ingredients.reset(new NYPizzaIngredientFactory());
 }

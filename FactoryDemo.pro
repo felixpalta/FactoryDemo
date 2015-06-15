@@ -6,7 +6,11 @@ CONFIG -= qt
 SOURCES += main.cpp \
     pizzastore.cpp \
     nypizzastore.cpp \
-    chicagopizzastore.cpp
+    chicagopizzastore.cpp \
+    cheesepizza.cpp \
+    clampizza.cpp \
+    peperonipizza.cpp \
+    veggiepizza.cpp
 
 *g++*{
 QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
@@ -23,11 +27,12 @@ QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
 HEADERS += \
     pizza.h \
     pizzastore.h \
-    nystylecheesepizza.h \
-    nystylepizza.h \
-    nystyleclampizza.h \
-    chicagostylepizza.h \
-    chicagostylecheesepizza.h \
-    chicagostyleclampizza.h \
     nypizzastore.h \
-    chicagopizzastore.h
+    chicagopizzastore.h \
+    pizzaingredientfactory.h \
+    nypizzaingredientfactory.h \
+    cheesepizza.h \
+    clampizza.h \
+    peperonipizza.h \
+    veggiepizza.h \
+    chicagoingredientfactory.h

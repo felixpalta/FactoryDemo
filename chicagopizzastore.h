@@ -5,10 +5,8 @@
 
 class ChicagoPizzaStore : public PizzaStore
 {
-private:
-    Pizza* create_pizza(std::string name) const override;
 public:
-    ChicagoPizzaStore() = default;
+    ChicagoPizzaStore();
 };
 
 #endif // CHICAGOPIZZASTORE_H
